@@ -1,0 +1,95 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="white-box">
+      <div class='row'>
+        <div class="col-md-10">
+          <h3 class="box-title">Source Files</h3>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="white-box">
+            <div class="table-responsive">
+              <table class="table text-nowrap">
+                <thead>
+                  <tr>
+                    <th class="border-top-0">#</th>
+                    <th class="border-top-0">File Name</th>
+                    <th class="border-top-0">Uploaded At</th>
+                    <th class="border-top-0">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @source_files.each.with_index(1) do |source_file, index| %>
+                    <tr>
+                      <th><%= index %></th>
+                      <th>
+                        <%= source_file.source.blob.filename.to_s %>
+                      </th>
+                      <th><%= source_file.created_at.strftime('%F at %I:%M') %></th>
+                      <th>
+                        <%= link_to imported_data_reconcile_transaction_path(@reconcile_transaction, file_type: 'source'), class: 'btn btn-warning' do %>
+                          <i class='fa fa-eye'></i>
+                        <% end %>
+                      </th>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="white-box">
+      <div class='row'>
+        <div class="col-md-10">
+          <h3 class="box-title">Destination Files</h3>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="white-box">
+            <div class="table-responsive">
+              <table class="table text-nowrap">
+                <thead>
+                  <tr>
+                    <th class="border-top-0">#</th>
+                    <th class="border-top-0">File Name</th>
+                    <th class="border-top-0">Uploaded At</th>
+                    <th class="border-top-0">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @destination_files.each.with_index(1) do |destination_file, index| %>
+                    <tr>
+                      <th><%= index %></th>
+                      <th>
+                        <%= destination_file.destination.blob.filename.to_s %>
+                      </th>
+                      <th><%= destination_file.created_at.strftime('%F at %I:%M') %></th>
+                      <th>
+                        <%= link_to imported_data_reconcile_transaction_path(@reconcile_transaction, file_type: 'destination'), class: 'btn btn-warning' do %>
+                          <i class='fa fa-eye'></i>
+                        <% end %>
+                      </th>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

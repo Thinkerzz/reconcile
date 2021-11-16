@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="white-box">
+      <div class='row'>
+        <div class="col-md-6">
+          <%= link_to new_reconcile_transaction_summary_path, class: 'btn btn-primary' do %>
+            <i class='fa fa-plus'></i> New Custom Summary
+          <% end %>
+        </div>
+        <div class="col-md-6">
+          <%= link_to general_summary_reconcile_transaction_summaries_path(@reconcile_transaction), class: 'btn btn-info float-right' do %>
+            <i class='fa fa-plus'></i> New General Summary
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="white-box">
+            <div class="table-responsive">
+              <table class="table text-nowrap">
+                <thead>
+                  <tr>
+                    <th class="border-top-0">#</th>
+                    <th class="border-top-0">Created At</th>
+                    <th class="border-top-0">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @summaries.each.with_index(1) do |summary, index| %>
+                    <tr>
+                      <th><%= index %></th>
+                      <th><%= summary.created_at.strftime('%F at %I:%M') %></th>
+                      <th>
+                        <%= link_to reconcile_transaction_summary_path(@reconcile_transaction, summary), class: 'btn btn-warning' do %>
+                          <i class='fa fa-eye'></i>
+                        <% end %>
+                      </th>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

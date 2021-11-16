@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="white-box">
+      <div class='row'>
+        <div class="col-md-10">
+          <h3 class="box-title">Create New Summary</h3>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="white-box">
+            <%= form_for @summary, url: reconcile_transaction_summaries_path(@reconcile_transaction), method: :post do |s| %>
+              <div class='col-sm-12 float-right mt-2 p-0'>
+                <%= s.label :source_columns, 'Matching Source Points' %>
+                <%= s.select :source_columns, options_for_select(@source_options.map { |sos| [sos.tr("_"," ").humanize, sos] }, []), {}, class: 'form-control select2-enable', multiple: true %>
+              </div>
+              <div class='col-sm-12 float-right mt-2 p-0'>
+                <%= s.label :destination_columns, 'Matching Destination Points' %>
+                <%= s.select :destination_columns, options_for_select(@destination_options.map { |dos| [dos.tr("_"," ").humanize, dos] }, []), {}, class: 'form-control select2-enable', multiple: true %>
+              </div>
+              <div class='col-sm-12 float-right mt-2 p-0'>
+                <%= s.label :result_columns, 'Set Out Come Points' %>
+                <%= s.select :result_columns, options_for_select(@destination_options.map { |dos| [dos.tr("_"," ").humanize, dos] }, []), {}, class: 'form-control select2-enable', multiple: true %>
+              </div>
+              <div class='col-sm-12 float-right mt-2 p-0'>
+                <%= s.submit 'Save', class: 'btn btn-primary float-right' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

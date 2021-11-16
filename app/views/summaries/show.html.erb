@@ -1,0 +1,96 @@
+<% if @summary.present? && @summary.detail_data.present? %>
+  <% @summary.detail_data.map do |k, value_data| %>
+    <% if k == 'source' %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="white-box">
+            <div class='row'>
+              <div class="col-md-12">
+                <h3 class="box-title">
+                  <%= k.humanize %>
+                </h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="white-box">
+                  <span>Source File Entries: <%= value_data['total-count'] %></span>
+                  <br>
+                  <span>Total Amount By Entries: <%= value_data['total-amount'] %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% elsif k == 'destination' %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="white-box">
+            <div class='row'>
+              <div class="col-md-12">
+                <h3 class="box-title">
+                  <%= k.humanize %>
+                </h3>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="white-box">
+                  <span>Source File Entries: <%= value_data['total-count'] %></span>
+                  <br>
+                  <span>Total Amount Entries: <%= value_data['total-amount'] %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% elsif k == 'general' %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="white-box">
+            <div class='row'>
+              <div class="col-md-6">
+                <h3 class="box-title">
+                  <%= k.humanize %>
+                </h3>
+              </div>
+              <div class="col-md-6">
+                <%= link_to export_discrepancies_reconcile_transaction_summary_path(@reconcile_transaction.id, @summary.id, format: 'csv'), class: 'btn btn-primary float-right' do %>
+                  <i class='fa fa-download'></i> Export Discrepancy Report
+                <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="white-box">
+
+                  <span>Source Files: <%= value_data['total-source-files'] %></span>
+                  <br>
+                  <span>Destination Files: <%= value_data['total-destination-files'] %></span>
+                  <br>
+                  <span>Amount Discrepancies: <%= value_data['reconcile-amount-discrepancies'] %></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="white-box">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="white-box">
+              Summary is not available.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

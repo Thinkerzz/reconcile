@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="white-box">
+      <div class='row'>
+        <div class="col-md-10">
+          <h3 class="box-title">New Reconciliation</h3>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="white-box">
+            <%= form_for @reconcile_transaction do |rt| %>
+              <%= label_tag 'Source Files:' %>
+              <div class='row'>
+                <div class='col-md-12'>
+                  <div id='source_files'>
+                    <div class='row p-0'>
+                      <div class='col-md-12'>
+                        <%= rt.fields_for :source_files do |sf| %>
+                          <%= render partial: 'source_file_fields', locals: {f: sf} %>
+                        <% end %>
+                        <div class='links float-right mr-2'>
+                          <%= link_to_add_association '', rt, :source_files, class: 'fa fa-plus btn btn-warning float-left mt-3' %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <%= label_tag 'Destination Files:' %>
+              <div class='row'>
+                <div class='col-md-12'>
+                  <div id='destination_files'>
+                    <div class='row p-0'>
+                      <div class='col-md-12'>
+                        <%= rt.fields_for :destination_files do |df| %>
+                          <%= render partial: 'destination_file_fields', locals: {f: df} %>
+                        <% end %>
+                        <div class='links float-right mr-2'>
+                          <%= link_to_add_association '', rt, :destination_files, class: 'fa fa-plus btn btn-warning float-left mt-3' %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class='col-sm-12 float-right mt-2 p-0'>
+                <%= rt.submit 'Upload for Reconciliation', class: 'btn btn-primary float-right' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

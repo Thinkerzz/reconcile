@@ -1,0 +1,20 @@
+<aside class='left-sidebar' data-sidebarbg='skin6'>
+  <div class='scroll-sidebar'>
+    <nav class='sidebar-nav'>
+      <ul id='sidebarnav'>
+        <li class='sidebar-item pt-2'>
+          <%= link_to root_path, class: 'sidebar-link waves-effect waves-dark sidebar-link', 'aria-expanded' => 'false' do %>
+            <i class='fa fa-home' aria-hidden='true'></i>
+            <span class='hide-menu'>Home</span>
+          <% end %>
+        </li>
+        <li class='sidebar-item pt-2'>
+          <%= link_to reconcile_transactions_path, class: 'sidebar-link waves-effect waves-dark sidebar-link', 'aria-expanded' => 'false' do %>
+            <i class='fa fa-files-o' aria-hidden='true'></i>
+            <span class='hide-menu'>Reconciliations</span>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</aside>

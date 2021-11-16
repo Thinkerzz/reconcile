@@ -1,0 +1,116 @@
+<% if @file_type == 'source' %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="white-box">
+        <div class='row'>
+          <div class="col-md-10">
+            <h3 class="box-title">Source Files</h3>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+        <% @file_imports.source.each do |file_import| %>
+          <% header = file_import.data_rows.header.last.values %>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="white-box">
+                <div class="table-responsive">
+                  <table class="table text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <% header.each do |heading| %>
+                          <th class="border-top-0"><%= heading.titleize %></th>
+                        <% end %>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% file_import.data_rows.row.last(10).each.with_index(1) do |row, index| %>
+                        <tr>
+                          <th><%= index %></th>
+                          <% row.values.each do |value| %>
+                            <th><%= value %></th>
+                          <% end %> 
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% elsif @file_type == 'destination' %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="white-box">
+        <div class='row'>
+          <div class="col-md-10">
+            <h3 class="box-title">Destination Files</h3>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+        <% @file_imports.source.each do |file_import| %>
+          <% header = file_import.data_rows.header.last.values %>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="white-box">
+                <div class="table-responsive">
+                  <table class="table text-nowrap">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <% header.each do |heading| %>
+                          <th class="border-top-0"><%= heading.titleize %></th>
+                        <% end %>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% file_import.data_rows.row.last(10).each.with_index(1) do |row, index| %>
+                        <tr>
+                          <th><%= index %></th>
+                          <% row.values.each do |value| %>
+                            <th><%= value %></th>
+                          <% end %> 
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="white-box">
+        <div class='row'>
+          <div class="col-md-10">
+            <h3 class="box-title">Destination Files</h3>
+          </div>
+          <div class="col-md-2">
+          </div>
+        </div>
+        <% @file_imports.source.each do |file_import| %>
+          <% header = file_import.data_rows.header.last.values %>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="white-box">
+                Now Preview Available
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
