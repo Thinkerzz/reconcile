@@ -15,4 +15,4 @@ production:
   <<: *default
   database: reconcile_production
   username: reconcile
-  password: <%= ENV['RECONCILE_DATABASE_PASSWORD'] %>
+  password: reconcile_123
