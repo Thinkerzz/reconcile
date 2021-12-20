@@ -10,9 +10,3 @@ development:
 test:
   <<: *default
   database: reconcile_test
-
-production:
-  <<: *default
-  database: reconcile_production
-  username: reconcile
-  password: reconcile_123
