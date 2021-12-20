@@ -10,3 +10,8 @@ development:
 test:
   <<: *default
   database: reconcile_test
+
+production:
+  database: dgqlb8d5nmg80
+  host: ec2-54-157-113-118.compute-1.amazonaws.com
+  password: 24c610d9f9f65250c75c9e3f211392ce5605286aeb26d860a8e86bbdde24ca64
